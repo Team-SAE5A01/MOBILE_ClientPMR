@@ -1,6 +1,6 @@
 # mobilite_pmr
 
-Assistance aux PMR dans leur trajets
+Application mobile pour l'assistance aux PMR dans leur trajets
 
 ## Getting Started
 
