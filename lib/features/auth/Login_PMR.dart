@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobilite_pmr/features/utilisateur/Page_principal_test.dart';
+import 'package:mobilite_pmr/features/auth/signup_page.dart';
 
 class LoginPMR extends StatelessWidget {
   const LoginPMR({super.key});
@@ -14,11 +15,13 @@ class LoginPMR extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           // Logo
+          SizedBox(height: MediaQuery.of(context).size.width * 0.1),
+
           SizedBox(
             width: MediaQuery.of(context).size.width * 0.5,
             height: MediaQuery.of(context).size.width * 0.5,
             child: Image.asset(
-              'Assets/Images/Logo/Logo_PMR.png',
+              'lib/assets/images/Logo_PMR.png',
               fit: BoxFit.cover,
             ),
           ),
@@ -37,7 +40,7 @@ class LoginPMR extends StatelessWidget {
           Form(
             child: Column(
               children: [
-                SizedBox(height: MediaQuery.of(context).size.width * 0.2),
+                SizedBox(height: MediaQuery.of(context).size.width * 0.05),
                 // Username Input
                 Padding(
                   padding: EdgeInsets.symmetric(
@@ -94,8 +97,9 @@ class LoginPMR extends StatelessWidget {
                       return value!.isEmpty ? "Entrez votre mot de passe" : null;
                     },
                   ),
-                ),
-                SizedBox(height: MediaQuery.of(context).size.width * 0.1),
+                ),            
+              SizedBox(height: MediaQuery.of(context).size.width * 0.05),
+
                 // Login Button
                 Padding(
                   padding: EdgeInsets.symmetric(
@@ -104,7 +108,7 @@ class LoginPMR extends StatelessWidget {
                   child: DecoratedBox(
                     decoration: BoxDecoration(
                       shape: BoxShape.rectangle,
-                      color: const Color.fromRGBO(186, 251, 223, 0.8),
+                      color: const Color.fromRGBO(47, 184, 222, 1),
                       borderRadius: BorderRadius.circular(16),
                     ),
                     child: MaterialButton(
@@ -120,6 +124,50 @@ class LoginPMR extends StatelessWidget {
                       textColor: Colors.black,
                       child: const Text('Se connecter'),
                     ),
+                  ),
+                ),
+                SizedBox(height: MediaQuery.of(context).size.width * 0.05),
+
+                // Forgot Password & Register
+                Padding(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: MediaQuery.of(context).size.width * 0.05,
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      // Forgot Password
+                      TextButton(
+                        onPressed: () {
+                          // Action when text changes
+                        },
+                        child: const Text(
+                          'Mot de passe oublié ?',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 15,
+                          ),
+                        ),
+                      ),
+                      // Register
+                      TextButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const SignupPage(),
+                            ),
+                          );
+                        },
+                        child: const Text(
+                          'S\'inscrire',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 15,
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ],
