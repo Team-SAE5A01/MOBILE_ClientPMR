@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import '../Page_Test/Page_principal_test.dart';
+import 'package:mobilite_pmr/features/utilisateur/Page_principal_test.dart';
+
 class LoginPMR extends StatelessWidget {
-  const LoginPMR({Key? key}) : super(key: key);
+  const LoginPMR({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,31 +22,30 @@ class LoginPMR extends StatelessWidget {
               fit: BoxFit.cover,
             ),
           ),
-          // Texte de bienvenue
+          // Welcome Text
           const Text(
             'Bienvenue',
             style: TextStyle(
               fontSize: 35,
-              color: Color.fromARGB(255, 255, 255, 255),
+              color: Colors.white,
               fontWeight: FontWeight.bold,
               decoration: TextDecoration.underline,
               decorationColor: Colors.white,
             ),
           ),
-          // Formulaire
+          // Form
           Form(
             child: Column(
               children: [
-                // Champ de saisie pour le nom d'utilisateur
                 SizedBox(height: MediaQuery.of(context).size.width * 0.2),
+                // Username Input
                 Padding(
                   padding: EdgeInsets.symmetric(
-                      horizontal: MediaQuery.of(context).size.width * 0.05),
+                    horizontal: MediaQuery.of(context).size.width * 0.05,
+                  ),
                   child: TextFormField(
                     keyboardType: TextInputType.name,
-                    style: const TextStyle(
-                      color: Colors.white,
-                    ),
+                    style: const TextStyle(color: Colors.white),
                     decoration: const InputDecoration(
                       hintText: "Nom d'utilisateur",
                       hintStyle: TextStyle(fontSize: 20, color: Colors.white),
@@ -58,7 +58,7 @@ class LoginPMR extends StatelessWidget {
                       prefixIcon: Icon(Icons.man),
                     ),
                     onChanged: (String value) {
-                      // Action lors de la saisie
+                      // Action when text changes
                     },
                     validator: (value) {
                       return value!.isEmpty
@@ -68,15 +68,13 @@ class LoginPMR extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: MediaQuery.of(context).size.width * 0.1),
-
-                // Champ de saisie pour le mot de passe
+                // Password Input
                 Padding(
                   padding: EdgeInsets.symmetric(
-                      horizontal: MediaQuery.of(context).size.width * 0.05),
+                    horizontal: MediaQuery.of(context).size.width * 0.05,
+                  ),
                   child: TextFormField(
-                    style: const TextStyle(
-                      color: Colors.white,
-                    ),
+                    style: const TextStyle(color: Colors.white),
                     keyboardType: TextInputType.visiblePassword,
                     decoration: const InputDecoration(
                       hintText: "Mot de passe",
@@ -90,21 +88,19 @@ class LoginPMR extends StatelessWidget {
                       prefixIcon: Icon(Icons.password),
                     ),
                     onChanged: (String value) {
-                      // Action lors de la saisie
+                      // Action when text changes
                     },
                     validator: (value) {
-                      return value!.isEmpty
-                          ? "Entrez votre mot de passe"
-                          : null;
+                      return value!.isEmpty ? "Entrez votre mot de passe" : null;
                     },
                   ),
                 ),
                 SizedBox(height: MediaQuery.of(context).size.width * 0.1),
-
-                // Bouton 'se connecter'
+                // Login Button
                 Padding(
                   padding: EdgeInsets.symmetric(
-                      horizontal: MediaQuery.of(context).size.width * 0.05),
+                    horizontal: MediaQuery.of(context).size.width * 0.05,
+                  ),
                   child: DecoratedBox(
                     decoration: BoxDecoration(
                       shape: BoxShape.rectangle,
@@ -114,15 +110,15 @@ class LoginPMR extends StatelessWidget {
                     child: MaterialButton(
                       minWidth: double.infinity,
                       onPressed: () {
-
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => Main_Page()));
-
+                            builder: (context) => const Main_Page(),
+                          ),
+                        );
                       },
-                      child: const Text('Se connecter'),
                       textColor: Colors.black,
+                      child: const Text('Se connecter'),
                     ),
                   ),
                 ),
