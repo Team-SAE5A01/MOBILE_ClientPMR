@@ -10,7 +10,8 @@ class LoginPMR extends StatelessWidget {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: const Color.fromRGBO(16, 36, 50, 1),
-      body: Column(
+      body: SingleChildScrollView(
+      child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
@@ -175,6 +176,7 @@ class LoginPMR extends StatelessWidget {
           ),
         ],
       ),
+    )
     );
   }
 }
