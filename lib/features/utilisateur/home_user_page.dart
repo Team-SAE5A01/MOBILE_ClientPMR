@@ -1,7 +1,29 @@
 import 'package:flutter/material.dart';
+import '../../widgets/custom_nav_bar.dart';
+import 'user_profile_page.dart';
 
-class HomeUserPage extends StatelessWidget {
+class HomeUserPage extends StatefulWidget {
   const HomeUserPage({super.key});
+
+  @override
+  _HomeUserPageState createState() => _HomeUserPageState();
+}
+
+class _HomeUserPageState extends State<HomeUserPage> {
+  int _selectedIndex = 1;
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+
+    if (index == 2) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const ProfilePage()),
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -98,43 +120,10 @@ class HomeUserPage extends StatelessWidget {
               ),
             ),
           ),
-          // Floating Navigation Bar with Arrow Shape
-          Padding(
-            padding: const EdgeInsets.only(bottom: 20),
-            child: Stack(
-              alignment: Alignment.bottomCenter,
-              children: [
-                Container(
-                  margin: const EdgeInsets.symmetric(horizontal: 30),
-                  height: 80,
-                  decoration: const BoxDecoration(
-                    color: Colors.blueAccent,
-                    borderRadius: BorderRadius.vertical(top: Radius.circular(40)),
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      IconButton(
-                        icon: const Icon(Icons.calendar_today, color: Colors.white, size: 30),
-                        onPressed: () {},
-                      ),
-                      Container(
-                        padding: const EdgeInsets.all(12),
-                        decoration: const BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: Colors.white,
-                        ),
-                        child: const Icon(Icons.home, color: Colors.blueAccent, size: 35),
-                      ),
-                      IconButton(
-                        icon: const Icon(Icons.person, color: Colors.white, size: 30),
-                        onPressed: () {},
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
+          // Custom Navigation Bar
+          CustomNavBar(
+            selectedIndex: _selectedIndex,
+            onItemTapped: _onItemTapped,
           ),
         ],
       ),
