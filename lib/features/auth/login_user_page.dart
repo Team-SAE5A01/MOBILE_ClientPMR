@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mobilite_pmr/features/utilisateur/Page_principal_test.dart';
+import 'package:mobilite_pmr/features/utilisateur/home_user_page.dart';
 import 'package:mobilite_pmr/features/auth/signup_page.dart';
 
 class LoginPMR extends StatelessWidget {
@@ -118,7 +118,7 @@ class LoginPMR extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => const Main_Page(),
+                            builder: (context) => const HomeUserPage(),
                           ),
                         );
                       },
