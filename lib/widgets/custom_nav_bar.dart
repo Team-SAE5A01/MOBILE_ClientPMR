@@ -1,64 +1,60 @@
 import 'package:flutter/material.dart';
+import '../features/utilisateur/home_user_page.dart';
+import '../features/utilisateur/user_profile_page.dart';
+import '../features/utilisateur/reservation_page.dart';
 
-class CustomNavBar extends StatelessWidget {
-  final int selectedIndex;
-  final Function(int) onItemTapped;
+class CustomNavBar extends StatefulWidget {
+  const CustomNavBar({super.key, required int selectedIndex, required void Function(int index) onItemTapped});
 
-  const CustomNavBar({
-    super.key,
-    required this.selectedIndex,
-    required this.onItemTapped,
-  });
+  @override
+  _CustomNavBarState createState() => _CustomNavBarState();
+}
+
+class _CustomNavBarState extends State<CustomNavBar> {
+  int _selectedIndex = 1;
+
+  final List<Widget> _pages = [
+    const ReservationPage(),
+    const HomeUserPage(),
+    const UserProfilePage(),
+  ];
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 20),
-      child: Stack(
-        alignment: Alignment.bottomCenter,
-        children: [
-          Container(
-            margin: const EdgeInsets.symmetric(horizontal: 30),
-            height: 80,
-            decoration: const BoxDecoration(
-              color: Colors.blueAccent,
-              borderRadius: BorderRadius.vertical(top: Radius.circular(40)),
+    return Scaffold(
+      body: IndexedStack(
+        index: _selectedIndex,
+        children: _pages,
+      ),
+      bottomNavigationBar: ClipRRect(
+        borderRadius: const BorderRadius.vertical(top: Radius.circular(40)),
+        child: BottomNavigationBar(
+          backgroundColor: Colors.blue.shade700,
+          currentIndex: _selectedIndex,
+          selectedItemColor: Colors.black,
+          unselectedItemColor: Colors.white,
+          onTap: _onItemTapped,
+          items: const [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.calendar_today),
+              label: 'Réservations',
             ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                IconButton(
-                  icon: Icon(
-                    Icons.calendar_today,
-                    color: selectedIndex == 0 ? Colors.black : Colors.white,
-                    size: 30,
-                  ),
-                  onPressed: () => onItemTapped(0),
-                ),
-                Container(
-                  padding: const EdgeInsets.all(12),
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: selectedIndex == 1 ? Colors.white : Colors.transparent,
-                  ),
-                  child: Icon(
-                    Icons.home,
-                    color: selectedIndex == 1 ? Colors.blueAccent : Colors.white,
-                    size: 35,
-                  ),
-                ),
-                IconButton(
-                  icon: Icon(
-                    Icons.person,
-                    color: selectedIndex == 2 ? Colors.black : Colors.white,
-                    size: 30,
-                  ),
-                  onPressed: () => onItemTapped(2),
-                ),
-              ],
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: 'Accueil',
             ),
-          ),
-        ],
+            BottomNavigationBarItem(
+              icon: Icon(Icons.person),
+              label: 'Profil',
+            ),
+          ],
+        ),
       ),
     );
   }

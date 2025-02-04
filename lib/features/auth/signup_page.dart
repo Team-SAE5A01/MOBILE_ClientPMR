@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:mobilite_pmr/features/auth/login_user_page.dart';
 import 'package:mobilite_pmr/features/utilisateur/Page_principal_test.dart';
+import 'package:mobilite_pmr/features/utilisateur/app_layout.dart';
 
 class SignupPage extends StatefulWidget {
-  const SignupPage({Key? key}) : super(key: key);
+  const SignupPage({super.key});
   @override
   _SignupPageState createState() => _SignupPageState();
 }
@@ -11,7 +12,7 @@ class SignupPage extends StatefulWidget {
 class _SignupPageState extends State<SignupPage> {
   bool isMobilityReduced = false;
   String? selectedPMRType;
-  TextEditingController _dateController = TextEditingController();
+  final TextEditingController _dateController = TextEditingController();
 
   final List<String> pmrTypes = [
     'Mental',
@@ -25,15 +26,15 @@ class _SignupPageState extends State<SignupPage> {
   ];
 
   Future<void> _selectDate() async {
-      DateTime? _picked = await showDatePicker(
+      DateTime? picked = await showDatePicker(
       context: context,
       initialDate: DateTime.now(),
       firstDate: DateTime(1900),
       lastDate: DateTime.now(),
     );
-    if (_picked != null) {
+    if (picked != null) {
       setState(() {
-        _dateController.text = _picked.toString().split(' ')[0];
+        _dateController.text = picked.toString().split(' ')[0];
       });
     }
   }
@@ -60,7 +61,7 @@ class _SignupPageState extends State<SignupPage> {
               style: const TextStyle(color: Colors.white),
               decoration: InputDecoration(
                 hintText: 'Entrer le prénom',
-                hintStyle: TextStyle(color: Colors.grey),
+                hintStyle: const TextStyle(color: Colors.grey),
                 filled: true,
                 fillColor: Colors.white, // Fond du champ
                 border: OutlineInputBorder(
@@ -81,7 +82,7 @@ class _SignupPageState extends State<SignupPage> {
               style: const TextStyle(color: Colors.white),
               decoration: InputDecoration(
                 hintText: 'Entrer le nom',
-                hintStyle: TextStyle(color: Colors.grey),
+                hintStyle: const TextStyle(color: Colors.grey),
                 filled: true,
                 fillColor: Colors.white, // Fond du champ
                 border: OutlineInputBorder(
@@ -101,14 +102,14 @@ class _SignupPageState extends State<SignupPage> {
               controller: _dateController,
               decoration: InputDecoration(
                 hintText: 'Date de naissance',
-                hintStyle: TextStyle(color: Colors.grey),
+                hintStyle: const TextStyle(color: Colors.grey),
                 filled: true,
                 fillColor: Colors.white, // Fond du champ
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(16),
                   borderSide: BorderSide.none,
                 ),
-                suffixIcon: Icon(Icons.calendar_today),
+                suffixIcon: const Icon(Icons.calendar_today),
               ),
               readOnly: true,
               onTap: () {
@@ -191,7 +192,7 @@ class _SignupPageState extends State<SignupPage> {
               style: const TextStyle(color: Colors.white),
               decoration: InputDecoration(
                 hintText: 'Entrer une adresse mail',
-                hintStyle: TextStyle(color: Colors.grey),
+                hintStyle: const TextStyle(color: Colors.grey),
                 filled: true,
                 fillColor: Colors.white,
                 border: OutlineInputBorder(
@@ -212,7 +213,7 @@ class _SignupPageState extends State<SignupPage> {
               style: const TextStyle(color: Colors.white),
               decoration: InputDecoration(
                 hintText: 'Confirmer l\'adresse mail',
-                hintStyle: TextStyle(color: Colors.grey),
+                hintStyle: const TextStyle(color: Colors.grey),
                 filled: true,
                 fillColor: Colors.white,
                 border: OutlineInputBorder(
@@ -233,7 +234,7 @@ class _SignupPageState extends State<SignupPage> {
               style: const TextStyle(color: Colors.white),
               decoration: InputDecoration(
                 hintText: 'Entrer le mot de passe',
-                hintStyle: TextStyle(color: Colors.grey),
+                hintStyle: const TextStyle(color: Colors.grey),
                 filled: true,
                 fillColor: Colors.white,
                 border: OutlineInputBorder(
@@ -269,7 +270,7 @@ class _SignupPageState extends State<SignupPage> {
               style: const TextStyle(color: Colors.white),
               decoration: InputDecoration(
                 hintText: 'Confirmer le mot de passe',
-                hintStyle: TextStyle(color: Colors.grey),
+                hintStyle: const TextStyle(color: Colors.grey),
                 filled: true,
                 fillColor: Colors.white,
                 border: OutlineInputBorder(
@@ -289,12 +290,14 @@ class _SignupPageState extends State<SignupPage> {
                   onPressed: (
                   ) {
                     // Action d'annulation
-                    Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const LoginPMR(),
-                          ),
-                        );
+  Navigator.pushReplacement(
+  context,
+  MaterialPageRoute(
+    builder: (context) => const AppLayout(),
+  ),
+);
+
+
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.white,
@@ -316,7 +319,7 @@ class _SignupPageState extends State<SignupPage> {
                     );
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Color.fromARGB(255, 47, 184, 222),
+                    backgroundColor: const Color.fromARGB(255, 47, 184, 222),
                     padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 12),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(16),

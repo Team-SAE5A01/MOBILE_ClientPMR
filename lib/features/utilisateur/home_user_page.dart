@@ -1,29 +1,9 @@
 import 'package:flutter/material.dart';
-import '../../widgets/custom_nav_bar.dart';
 import 'user_profile_page.dart';
+import 'reservation_page.dart';
 
-class HomeUserPage extends StatefulWidget {
+class HomeUserPage extends StatelessWidget {
   const HomeUserPage({super.key});
-
-  @override
-  _HomeUserPageState createState() => _HomeUserPageState();
-}
-
-class _HomeUserPageState extends State<HomeUserPage> {
-  int _selectedIndex = 1;
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-
-    if (index == 2) {
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => const ProfilePage()),
-      );
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -33,19 +13,19 @@ class _HomeUserPageState extends State<HomeUserPage> {
         children: [
           const SizedBox(height: 40),
           // User Profile Section
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20.0),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 20.0),
             child: Row(
               children: [
-                const CircleAvatar(
+                CircleAvatar(
                   radius: 30,
                   backgroundColor: Colors.white,
                   child: Icon(Icons.person, size: 40, color: Colors.black),
                 ),
-                const SizedBox(width: 10),
+                SizedBox(width: 10),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
+                  children: [
                     Text(
                       'Bienvenue',
                       style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
@@ -61,11 +41,11 @@ class _HomeUserPageState extends State<HomeUserPage> {
           ),
           const SizedBox(height: 20),
           // Reservations Section
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20.0),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 20.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
+              children: [
                 Text(
                   'Vos réservations',
                   style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
@@ -91,11 +71,11 @@ class _HomeUserPageState extends State<HomeUserPage> {
             ),
           ),
           // Past Trips Section
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20.0),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 20.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
+              children: [
                 Text(
                   'Vos voyages passés',
                   style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
@@ -119,11 +99,6 @@ class _HomeUserPageState extends State<HomeUserPage> {
                 ),
               ),
             ),
-          ),
-          // Custom Navigation Bar
-          CustomNavBar(
-            selectedIndex: _selectedIndex,
-            onItemTapped: _onItemTapped,
           ),
         ],
       ),
