@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'features/auth/login_user_page.dart';
-import 'features/utilisateur/app_layout.dart';
+import 'core/app_layout.dart';
+import 'core/theme_provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => ThemeProvider(),
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatefulWidget {
@@ -24,9 +31,14 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: isAuthenticated ? const AppLayout() : LoginPMR(onLogin: login),
+    return Consumer<ThemeProvider>(
+      builder: (context, themeProvider, child) {
+        return MaterialApp(
+          debugShowCheckedModeBanner: false,
+          theme: themeProvider.themeData,
+          home: isAuthenticated ? const AppLayout() : LoginPMR(onLogin: login),
+        );
+      },
     );
   }
 }

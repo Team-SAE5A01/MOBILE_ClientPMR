@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'home_user_page.dart';
-import 'user_profile_page.dart';
-import 'reservation_page.dart';
-import '../../widgets/custom_nav_bar.dart'; // Import de la navbar
+import '../features/utilisateur/home_user_page.dart';
+import '../features/utilisateur/user_profile_page.dart';
+import '../features/utilisateur/reservation_page.dart';
+import '../widgets/custom_nav_bar.dart'; // Import de la navbar
 
 class AppLayout extends StatefulWidget {
   const AppLayout({super.key});

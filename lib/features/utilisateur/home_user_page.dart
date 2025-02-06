@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'user_profile_page.dart';
-import 'reservation_page.dart';
+import 'settings_page.dart'; // Importez la nouvelle page de paramètres
 
 class HomeUserPage extends StatelessWidget {
   const HomeUserPage({super.key});
@@ -9,6 +8,20 @@ class HomeUserPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color.fromRGBO(16, 36, 50, 1),
+      appBar: AppBar(
+        backgroundColor: const Color.fromRGBO(16, 36, 50, 1),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.settings),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const SettingsPage()),
+              );
+            },
+          ),
+        ],
+      ),
       body: Column(
         children: [
           const SizedBox(height: 40),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import '../utilisateur/app_layout.dart'; // Remplace HomeUserPage par AppLayout
+import 'package:mobilite_pmr/features/auth/forgot_password_page.dart';
+import '../../core/app_layout.dart'; // Remplace HomeUserPage par AppLayout
 import 'signup_page.dart';
 
 class LoginPMR extends StatelessWidget {
@@ -123,17 +124,22 @@ class LoginPMR extends StatelessWidget {
                       children: [
                         // Forgot Password
                         TextButton(
-                          onPressed: () {
-                            // Ajouter action pour mot de passe oublié si nécessaire
-                          },
-                          child: const Text(
-                            'Mot de passe oublié ?',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 15,
-                            ),
-                          ),
-                        ),
+  onPressed: () {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => const ForgotPasswordPage(),
+      ),
+    );
+  },
+  child: const Text(
+    'Mot de passe oublié ?',
+    style: TextStyle(
+      color: Colors.white,
+      fontSize: 15,
+    ),
+  ),
+),
                         // Register
                         TextButton(
                           onPressed: () {

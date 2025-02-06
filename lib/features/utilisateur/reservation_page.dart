@@ -39,7 +39,7 @@ class ReservationPage extends StatelessWidget {
             children: [
               ElevatedButton(
                 onPressed: () {},
-                style: ElevatedButton.styleFrom(backgroundColor: Colors.purple),
+                style: ElevatedButton.styleFrom(backgroundColor: Colors.blue),
                 child: const Text("Aller simple"),
               ),
               const SizedBox(width: 10),
