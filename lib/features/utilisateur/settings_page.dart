@@ -14,6 +14,7 @@ class _SettingsPageState extends State<SettingsPage> {
 
   final List<String> _themes = [
     'Normal',
+    'Dark',
     'Daltonien (Deuteranopie)',
     'Daltonien (Protanopie)',
     'Daltonien (Tritanopie)',

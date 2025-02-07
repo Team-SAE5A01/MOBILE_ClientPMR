@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import '../../widgets/custom_nav_bar.dart';
-import 'home_user_page.dart';
-import 'reservation_page.dart';
 
 class UserProfilePage extends StatelessWidget {
   const UserProfilePage({super.key});

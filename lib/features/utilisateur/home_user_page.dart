@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
-import 'settings_page.dart'; // Importez la nouvelle page de paramètres
+import 'settings_page.dart'; 
 
 class HomeUserPage extends StatelessWidget {
   const HomeUserPage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
     return Scaffold(
-      backgroundColor: const Color.fromRGBO(16, 36, 50, 1),
+      backgroundColor: theme.scaffoldBackgroundColor,
       appBar: AppBar(
-        backgroundColor: const Color.fromRGBO(16, 36, 50, 1),
+        backgroundColor: theme.appBarTheme.backgroundColor,
         actions: [
           IconButton(
-            icon: const Icon(Icons.settings),
+            icon: Icon(Icons.settings, color: theme.iconTheme.color),
             onPressed: () {
               Navigator.push(
                 context,
@@ -26,26 +28,26 @@ class HomeUserPage extends StatelessWidget {
         children: [
           const SizedBox(height: 40),
           // User Profile Section
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20.0),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20.0),
             child: Row(
               children: [
                 CircleAvatar(
                   radius: 30,
-                  backgroundColor: Colors.white,
-                  child: Icon(Icons.person, size: 40, color: Colors.black),
+                  backgroundColor: theme.cardColor,
+                  child: Icon(Icons.person, size: 40, color: theme.colorScheme.onBackground),
                 ),
-                SizedBox(width: 10),
+                const SizedBox(width: 10),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
                       'Bienvenue',
-                      style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
+                      style: theme.textTheme.titleLarge?.copyWith(color: theme.colorScheme.onBackground),
                     ),
                     Text(
                       'Julien',
-                      style: TextStyle(color: Colors.white, fontSize: 16),
+                      style: theme.textTheme.bodyLarge?.copyWith(color: theme.colorScheme.onBackground),
                     ),
                   ],
                 ),
@@ -54,16 +56,16 @@ class HomeUserPage extends StatelessWidget {
           ),
           const SizedBox(height: 20),
           // Reservations Section
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20.0),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   'Vos réservations',
-                  style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
+                  style: theme.textTheme.titleLarge?.copyWith(color: theme.colorScheme.onBackground),
                 ),
-                Divider(color: Colors.white),
+                Divider(color: theme.dividerColor),
               ],
             ),
           ),
@@ -76,7 +78,7 @@ class HomeUserPage extends StatelessWidget {
                   margin: const EdgeInsets.only(bottom: 10),
                   height: 60,
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: theme.cardColor,
                     borderRadius: BorderRadius.circular(10),
                   ),
                 ),
@@ -84,16 +86,16 @@ class HomeUserPage extends StatelessWidget {
             ),
           ),
           // Past Trips Section
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20.0),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   'Vos voyages passés',
-                  style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
+                  style: theme.textTheme.titleLarge?.copyWith(color: theme.colorScheme.onBackground),
                 ),
-                Divider(color: Colors.white),
+                Divider(color: theme.dividerColor),
               ],
             ),
           ),
@@ -106,7 +108,7 @@ class HomeUserPage extends StatelessWidget {
                   margin: const EdgeInsets.only(bottom: 10),
                   height: 60,
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: theme.cardColor,
                     borderRadius: BorderRadius.circular(10),
                   ),
                 ),

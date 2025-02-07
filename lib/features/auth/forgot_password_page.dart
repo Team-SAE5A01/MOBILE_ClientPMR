@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:mobilite_pmr/features/auth/forgot_password_page.dart';
 
 class ForgotPasswordPage extends StatelessWidget {
   const ForgotPasswordPage({super.key});

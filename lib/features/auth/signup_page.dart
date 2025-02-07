@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mobilite_pmr/features/auth/login_user_page.dart';
 import 'package:mobilite_pmr/features/utilisateur/Page_principal_test.dart';
-import 'package:mobilite_pmr/core/app_layout.dart';
 import 'package:mobilite_pmr/main.dart';
 
 class SignupPage extends StatefulWidget {
@@ -88,10 +86,12 @@ class _SignupPageState extends State<SignupPage> {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
     return Scaffold(
-      backgroundColor: const Color.fromRGBO(16, 36, 50, 1),
+      backgroundColor: theme.scaffoldBackgroundColor,
       appBar: AppBar(
-        backgroundColor: const Color.fromARGB(255, 16, 36, 50),
+        backgroundColor: theme.appBarTheme.backgroundColor,
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),
@@ -101,19 +101,19 @@ class _SignupPageState extends State<SignupPage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               // Champ Prénom
-              const Text(
+              Text(
                 'Prénom',
-                style: TextStyle(color: Colors.white, fontSize: 16),
+                style: theme.textTheme.bodyLarge?.copyWith(color: theme.hintColor),
               ),
               const SizedBox(height: 6),
               TextFormField(
                 controller: _firstNameController,
-                style: const TextStyle(color: Colors.white),
+                style: theme.textTheme.bodyLarge?.copyWith(color: theme.colorScheme.onBackground),
                 decoration: InputDecoration(
                   hintText: 'Entrer le prénom',
-                  hintStyle: const TextStyle(color: Colors.grey),
+                  hintStyle: theme.textTheme.bodyLarge?.copyWith(color: theme.hintColor),
                   filled: true,
-                  fillColor: Colors.white,
+                  fillColor: theme.cardColor,
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(16),
                     borderSide: BorderSide.none,
@@ -129,19 +129,19 @@ class _SignupPageState extends State<SignupPage> {
               const SizedBox(height: 16),
 
               // Champ Nom
-              const Text(
+              Text(
                 'Nom',
-                style: TextStyle(color: Colors.white, fontSize: 16),
+                style: theme.textTheme.bodyLarge?.copyWith(color: theme.hintColor),
               ),
               const SizedBox(height: 6),
               TextFormField(
                 controller: _lastNameController,
-                style: const TextStyle(color: Colors.white),
+                style: theme.textTheme.bodyLarge?.copyWith(color: theme.colorScheme.onBackground),
                 decoration: InputDecoration(
                   hintText: 'Entrer le nom',
-                  hintStyle: const TextStyle(color: Colors.grey),
+                  hintStyle: theme.textTheme.bodyLarge?.copyWith(color: theme.hintColor),
                   filled: true,
-                  fillColor: Colors.white,
+                  fillColor: theme.cardColor,
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(16),
                     borderSide: BorderSide.none,
@@ -157,22 +157,22 @@ class _SignupPageState extends State<SignupPage> {
               const SizedBox(height: 16),
 
               // Champ date de naissance
-              const Text(
+              Text(
                 'Date de naissance',
-                style: TextStyle(color: Colors.white, fontSize: 16),
+                style: theme.textTheme.bodyLarge?.copyWith(color: theme.hintColor),
               ),
               TextFormField(
                 controller: _dateController,
                 decoration: InputDecoration(
                   hintText: 'Date de naissance',
-                  hintStyle: const TextStyle(color: Colors.grey),
+                  hintStyle: theme.textTheme.bodyLarge?.copyWith(color: theme.hintColor),
                   filled: true,
-                  fillColor: Colors.white,
+                  fillColor: theme.cardColor,
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(16),
                     borderSide: BorderSide.none,
                   ),
-                  suffixIcon: const Icon(Icons.calendar_today),
+                  suffixIcon: Icon(Icons.calendar_today, color: theme.hintColor),
                 ),
                 readOnly: true,
                 onTap: () {
@@ -200,12 +200,12 @@ class _SignupPageState extends State<SignupPage> {
                         }
                       });
                     },
-                    checkColor: Colors.black,
-                    activeColor: Colors.white,
+                    checkColor: theme.colorScheme.onPrimary,
+                    activeColor: theme.colorScheme.primary,
                   ),
-                  const Text(
+                  Text(
                     "Êtes-vous une personne à mobilité réduite",
-                    style: TextStyle(color: Colors.white, fontSize: 14),
+                    style: theme.textTheme.bodyLarge?.copyWith(color: theme.hintColor),
                   ),
                 ],
               ),
@@ -213,32 +213,28 @@ class _SignupPageState extends State<SignupPage> {
               // Dropdown pour sélectionner le type de PMR
               if (isMobilityReduced) ...[
                 const SizedBox(height: 10),
-
-                // Label pour la liste déroulante
-                const Text(
+                Text(
                   'Type de PMR',
-                  style: TextStyle(color: Colors.white, fontSize: 16),
+                  style: theme.textTheme.bodyLarge?.copyWith(color: theme.hintColor),
                 ),
                 const SizedBox(height: 6),
-
-                // Dropdown de sélection
                 DropdownButtonFormField<String>(
                   decoration: InputDecoration(
-                    labelStyle: const TextStyle(color: Colors.grey),
+                    labelStyle: theme.textTheme.bodyLarge?.copyWith(color: theme.hintColor),
                     filled: true,
-                    fillColor: Colors.white,
+                    fillColor: theme.cardColor,
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(16),
                       borderSide: BorderSide.none,
                     ),
                   ),
-                  dropdownColor: Colors.white,
-                  style: const TextStyle(color: Colors.black),
+                  dropdownColor: theme.cardColor,
+                  style: theme.textTheme.bodyLarge?.copyWith(color: theme.colorScheme.onBackground),
                   value: selectedPMRType,
                   items: pmrTypes.map((String type) {
                     return DropdownMenuItem<String>(
                       value: type,
-                      child: Text(type),
+                      child: Text(type, style: theme.textTheme.bodyLarge),
                     );
                   }).toList(),
                   onChanged: (String? newValue) {
@@ -257,19 +253,19 @@ class _SignupPageState extends State<SignupPage> {
               ],
 
               // Champ Nom
-              const Text(
+              Text(
                 'Adresse mail',
-                style: TextStyle(color: Colors.white, fontSize: 16),
+                style: theme.textTheme.bodyLarge?.copyWith(color: theme.hintColor),
               ),
               const SizedBox(height: 6),
               TextFormField(
                 controller: _emailController,
-                style: const TextStyle(color: Colors.white),
+                style: theme.textTheme.bodyLarge?.copyWith(color: theme.colorScheme.onBackground),
                 decoration: InputDecoration(
                   hintText: 'Entrer une adresse mail',
-                  hintStyle: const TextStyle(color: Colors.grey),
+                  hintStyle: theme.textTheme.bodyLarge?.copyWith(color: theme.hintColor),
                   filled: true,
-                  fillColor: Colors.white,
+                  fillColor: theme.cardColor,
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(16),
                     borderSide: BorderSide.none,
@@ -280,19 +276,19 @@ class _SignupPageState extends State<SignupPage> {
               const SizedBox(height: 16),
 
               // Champ confirmation de l'adresse mail
-              const Text(
+              Text(
                 'Confirmation de l\'adresse mail',
-                style: TextStyle(color: Colors.white, fontSize: 16),
+                style: theme.textTheme.bodyLarge?.copyWith(color: theme.hintColor),
               ),
               const SizedBox(height: 6),
               TextFormField(
                 controller: _confirmEmailController,
-                style: const TextStyle(color: Colors.white),
+                style: theme.textTheme.bodyLarge?.copyWith(color: theme.colorScheme.onBackground),
                 decoration: InputDecoration(
                   hintText: 'Confirmer l\'adresse mail',
-                  hintStyle: const TextStyle(color: Colors.grey),
+                  hintStyle: theme.textTheme.bodyLarge?.copyWith(color: theme.hintColor),
                   filled: true,
-                  fillColor: Colors.white,
+                  fillColor: theme.cardColor,
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(16),
                     borderSide: BorderSide.none,
@@ -311,19 +307,19 @@ class _SignupPageState extends State<SignupPage> {
               const SizedBox(height: 16),
 
               // Champ mot de passe
-              const Text(
+              Text(
                 'Mot de passe',
-                style: TextStyle(color: Colors.white, fontSize: 16),
+                style: theme.textTheme.bodyLarge?.copyWith(color: theme.hintColor),
               ),
               const SizedBox(height: 6),
               TextFormField(
                 controller: _passwordController,
-                style: const TextStyle(color: Colors.white),
+                style: theme.textTheme.bodyLarge?.copyWith(color: theme.colorScheme.onBackground),
                 decoration: InputDecoration(
                   hintText: 'Entrer le mot de passe',
-                  hintStyle: const TextStyle(color: Colors.grey),
+                  hintStyle: theme.textTheme.bodyLarge?.copyWith(color: theme.hintColor),
                   filled: true,
-                  fillColor: Colors.white,
+                  fillColor: theme.cardColor,
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(16),
                     borderSide: BorderSide.none,
@@ -334,35 +330,35 @@ class _SignupPageState extends State<SignupPage> {
               ),
 
               // Critères du mot de passe
-              const Text(
+              Text(
                 'Votre mot de passe doit contenir :',
-                style: TextStyle(color: Colors.white, fontSize: 12),
+                style: theme.textTheme.bodySmall?.copyWith(color: theme.hintColor),
               ),
               const SizedBox(height: 4),
-              const Text(
+              Text(
                 '  • au minimum 8 caractères\n'
                 '  • au moins un chiffre\n'
                 '  • au moins un caractère spécial\n'
                 '  • au moins une majuscule',
-                style: TextStyle(color: Colors.white, fontSize: 12),
+                style: theme.textTheme.bodySmall?.copyWith(color: theme.hintColor),
               ),
 
               const SizedBox(height: 16),
 
               // Champ confirmation du mot de passe
-              const Text(
+              Text(
                 'Confirmation du mot de passe',
-                style: TextStyle(color: Colors.white, fontSize: 16),
+                style: theme.textTheme.bodyLarge?.copyWith(color: theme.hintColor),
               ),
               const SizedBox(height: 6),
               TextFormField(
                 controller: _confirmPasswordController,
-                style: const TextStyle(color: Colors.white),
+                style: theme.textTheme.bodyLarge?.copyWith(color: theme.colorScheme.onBackground),
                 decoration: InputDecoration(
                   hintText: 'Confirmer le mot de passe',
-                  hintStyle: const TextStyle(color: Colors.grey),
+                  hintStyle: theme.textTheme.bodyLarge?.copyWith(color: theme.hintColor),
                   filled: true,
-                  fillColor: Colors.white,
+                  fillColor: theme.cardColor,
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(16),
                     borderSide: BorderSide.none,
@@ -388,13 +384,13 @@ class _SignupPageState extends State<SignupPage> {
                       );
                     },
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.white,
+                      backgroundColor: theme.colorScheme.onPrimary,
                       padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 12),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(16),
                       ),
                     ),
-                    child: const Text('Annuler', style: TextStyle(color: Color.fromARGB(255, 47, 184, 222))),
+                    child: Text('Annuler', style: theme.textTheme.bodyLarge?.copyWith(color: theme.colorScheme.primary)),
                   ),
                   ElevatedButton(
                     onPressed: () {
@@ -409,13 +405,13 @@ class _SignupPageState extends State<SignupPage> {
                       }
                     },
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color.fromARGB(255, 47, 184, 222),
+                      backgroundColor: theme.colorScheme.primary,
                       padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 12),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(16),
                       ),
                     ),
-                    child: const Text('Valider', style: TextStyle(color: Colors.white)),
+                    child: Text('Valider', style: theme.textTheme.bodyLarge?.copyWith(color: theme.colorScheme.onPrimary)),
                   ),
                 ],
               ),
