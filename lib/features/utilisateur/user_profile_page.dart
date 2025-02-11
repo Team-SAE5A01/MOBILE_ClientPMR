@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:mobilite_pmr/core/app_layout.dart';
+import 'package:mobilite_pmr/features/auth/login_user_page.dart';
+import 'package:mobilite_pmr/features/utilisateur/Page_principal_test.dart';
+import 'package:mobilite_pmr/main.dart';
 
 class UserProfilePage extends StatelessWidget {
   const UserProfilePage({super.key});
@@ -111,6 +115,31 @@ class UserProfilePage extends StatelessWidget {
                     onPressed: () {},
                     child: const Text(
                       'Modifier le profil',
+                      style: TextStyle(fontSize: 16, color: Colors.white),
+                    ),
+                  ),
+
+                  
+                  // Bouton de redirection vers la page login
+                  const SizedBox(height: 20),
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color.fromRGBO(255, 0, 0, 1),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 80),
+                    ),
+                    onPressed: () {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const MyApp(),
+                        ),
+                      );
+                    },
+                    child: const Text(
+                      'Se Déconnecter',
                       style: TextStyle(fontSize: 16, color: Colors.white),
                     ),
                   ),
