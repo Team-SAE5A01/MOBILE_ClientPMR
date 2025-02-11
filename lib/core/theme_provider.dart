@@ -36,52 +36,84 @@ class ThemeProvider with ChangeNotifier {
   }
 
   ThemeData _buildDarkTheme() {
-    return ThemeData(
-      brightness: Brightness.dark,
-      primaryColor: Colors.blue[900],
-      scaffoldBackgroundColor: Colors.blue[900],
-      appBarTheme: AppBarTheme(
-        backgroundColor: Colors.blue[900],
-        iconTheme: IconThemeData(color: Colors.white),
+  return ThemeData(
+    brightness: Brightness.dark,
+    primaryColor: Color(0xFF102432),
+    scaffoldBackgroundColor: Color(0xFF102432),
+    appBarTheme: AppBarTheme(
+      backgroundColor: Color(0xFF102432),
+      iconTheme: IconThemeData(color: Color(0xFFFFFFFF)),
+    ),
+    textTheme: TextTheme(
+      titleLarge: TextStyle(color: Color(0xFFFFFFFF), fontSize: 18, fontWeight: FontWeight.bold),
+      bodyLarge: TextStyle(color: Color(0xFFFFFFFF), fontSize: 16),
+    ),
+    cardColor: Color(0xFF102432),
+    dividerColor: Color(0xFF2FB8DE),
+    iconTheme: IconThemeData(color: Color(0xFFFFFFFF)),
+    bottomNavigationBarTheme: BottomNavigationBarThemeData(
+      backgroundColor: Color(0xFF102432),
+      selectedItemColor: Color(0xFFFFFFFF),
+      unselectedItemColor: Color(0xFFD3D3D3),
+    ),
+    buttonTheme: ButtonThemeData(
+      buttonColor: Color(0xFF2FB8DE),
+      textTheme: ButtonTextTheme.primary,
+    ),
+    textButtonTheme: TextButtonThemeData(
+      style: TextButton.styleFrom(
+        foregroundColor: Color(0xFF000000),
       ),
-      textTheme: TextTheme(
-        titleLarge: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
-        bodyLarge: TextStyle(color: Colors.white, fontSize: 16),
+    ),
+    inputDecorationTheme: InputDecorationTheme(
+      hintStyle: TextStyle(color: Color(0xFFD3D3D3)),
+      border: OutlineInputBorder(
+        borderSide: BorderSide(color: Color(0xFFFFFFFF)),
       ),
-      cardColor: Colors.blue[800],
-      dividerColor: Colors.blue[700],
-      iconTheme: IconThemeData(color: Colors.white),
-      bottomNavigationBarTheme: BottomNavigationBarThemeData(
-        backgroundColor: Colors.blue[900],
-        selectedItemColor: Colors.white,
-        unselectedItemColor: Colors.white60,
-      ),
-    );
-  }
+    ),
+  );
+}
+
 
   ThemeData _buildLightTheme() {
-    return ThemeData(
-      brightness: Brightness.light,
-      primaryColor: Colors.blue[200],
-      scaffoldBackgroundColor: Colors.blue[50],
-      appBarTheme: AppBarTheme(
-        backgroundColor: Colors.blue[200],
-        iconTheme: IconThemeData(color: Colors.black),
+  return ThemeData(
+    brightness: Brightness.light,
+    primaryColor: Color(0xFF102432),
+    scaffoldBackgroundColor: Color(0xFFFFFFFF),
+    appBarTheme: AppBarTheme(
+      backgroundColor: Color(0xFF102432),
+      iconTheme: IconThemeData(color: Color(0xFF000000)),
+    ),
+    textTheme: TextTheme(
+      titleLarge: TextStyle(color: Color(0xFF000000), fontSize: 18, fontWeight: FontWeight.bold),
+      bodyLarge: TextStyle(color: Color(0xFF000000), fontSize: 16),
+    ),
+    cardColor: Color(0xFFFFFFFF),
+    dividerColor: Color(0xFFD3D3D3),
+    iconTheme: IconThemeData(color: Color(0xFF000000)),
+    bottomNavigationBarTheme: BottomNavigationBarThemeData(
+      backgroundColor: Color(0xFF102432),
+      selectedItemColor: Color(0xFFD3D3D3),
+      unselectedItemColor: Color(0xFFD3D3D3),
+    ),
+    buttonTheme: ButtonThemeData(
+      buttonColor: Color(0xFF2FB8DE),
+      textTheme: ButtonTextTheme.primary,
+    ),
+    textButtonTheme: TextButtonThemeData(
+      style: TextButton.styleFrom(
+        foregroundColor: Color(0xFF000000),
       ),
-      textTheme: TextTheme(
-        titleLarge: TextStyle(color: Colors.black, fontSize: 18, fontWeight: FontWeight.bold),
-        bodyLarge: TextStyle(color: Colors.black, fontSize: 16),
+    ),
+    inputDecorationTheme: InputDecorationTheme(
+      hintStyle: TextStyle(color: Color(0xFFD3D3D3)),
+      border: OutlineInputBorder(
+        borderSide: BorderSide(color: Color(0xFF000000)),
       ),
-      cardColor: Colors.blue[100],
-      dividerColor: Colors.blue[300],
-      iconTheme: IconThemeData(color: Colors.black),
-      bottomNavigationBarTheme: BottomNavigationBarThemeData(
-        backgroundColor: Colors.blue[200],
-        selectedItemColor: Colors.black,
-        unselectedItemColor: Colors.black54,
-      ),
-    );
-  }
+    ),
+  );
+}
+
 
   ThemeData _buildDeuteranopiaTheme() {
     return ThemeData(

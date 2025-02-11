@@ -11,9 +11,13 @@ class SettingsPage extends StatefulWidget {
 
 class _SettingsPageState extends State<SettingsPage> {
   String _selectedTheme = 'Normal';
+  double _fontSize = 16.0;
+  bool _autoDarkMode = false;
+  bool _notificationsEnabled = true;
 
   final List<String> _themes = [
     'Normal',
+    'Light',
     'Dark',
     'Daltonien (Deuteranopie)',
     'Daltonien (Protanopie)',
@@ -36,8 +40,7 @@ class _SettingsPageState extends State<SettingsPage> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+        child: ListView(
           children: [
             const Text(
               'Thème de l\'application',
@@ -62,6 +65,42 @@ class _SettingsPageState extends State<SettingsPage> {
                   borderRadius: BorderRadius.circular(10),
                 ),
               ),
+            ),
+            const SizedBox(height: 20),
+            const Text(
+              'Taille de la police',
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            ),
+            Slider(
+              value: _fontSize,
+              min: 12.0,
+              max: 24.0,
+              divisions: 6,
+              label: '$_fontSize',
+              onChanged: (value) {
+                setState(() {
+                  _fontSize = value;
+                });
+              },
+            ),
+            const SizedBox(height: 20),
+            SwitchListTile(
+              title: const Text('Mode sombre automatique'),
+              value: _autoDarkMode,
+              onChanged: (value) {
+                setState(() {
+                  _autoDarkMode = value;
+                });
+              },
+            ),
+            SwitchListTile(
+              title: const Text('Notifications activées'),
+              value: _notificationsEnabled,
+              onChanged: (value) {
+                setState(() {
+                  _notificationsEnabled = value;
+                });
+              },
             ),
           ],
         ),
