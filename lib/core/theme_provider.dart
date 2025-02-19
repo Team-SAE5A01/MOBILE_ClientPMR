@@ -38,34 +38,34 @@ class ThemeProvider with ChangeNotifier {
   ThemeData _buildDarkTheme() {
   return ThemeData(
     brightness: Brightness.dark,
-    primaryColor: Color(0xFF102432),
-    scaffoldBackgroundColor: Color(0xFF102432),
-    appBarTheme: AppBarTheme(
+    primaryColor: const Color(0xFF102432),
+    scaffoldBackgroundColor: const Color(0xFF102432),
+    appBarTheme: const AppBarTheme(
       backgroundColor: Color(0xFF102432),
       iconTheme: IconThemeData(color: Color(0xFFFFFFFF)),
     ),
-    textTheme: TextTheme(
+    textTheme: const TextTheme(
       titleLarge: TextStyle(color: Color(0xFFFFFFFF), fontSize: 18, fontWeight: FontWeight.bold),
       bodyLarge: TextStyle(color: Color(0xFFFFFFFF), fontSize: 16),
     ),
-    cardColor: Color(0xFF102432),
-    dividerColor: Color(0xFF2FB8DE),
-    iconTheme: IconThemeData(color: Color(0xFFFFFFFF)),
-    bottomNavigationBarTheme: BottomNavigationBarThemeData(
+    cardColor: const Color(0xFF102432),
+    dividerColor: const Color(0xFF2FB8DE),
+    iconTheme: const IconThemeData(color: Color(0xFFFFFFFF)),
+    bottomNavigationBarTheme: const BottomNavigationBarThemeData(
       backgroundColor: Color(0xFF102432),
       selectedItemColor: Color(0xFFFFFFFF),
       unselectedItemColor: Color(0xFFD3D3D3),
     ),
-    buttonTheme: ButtonThemeData(
+    buttonTheme: const ButtonThemeData(
       buttonColor: Color(0xFF2FB8DE),
       textTheme: ButtonTextTheme.primary,
     ),
     textButtonTheme: TextButtonThemeData(
       style: TextButton.styleFrom(
-        foregroundColor: Color(0xFF000000),
+        foregroundColor: const Color(0xFF000000),
       ),
     ),
-    inputDecorationTheme: InputDecorationTheme(
+    inputDecorationTheme: const InputDecorationTheme(
       hintStyle: TextStyle(color: Color(0xFFD3D3D3)),
       border: OutlineInputBorder(
         borderSide: BorderSide(color: Color(0xFFFFFFFF)),
@@ -78,34 +78,34 @@ class ThemeProvider with ChangeNotifier {
   ThemeData _buildLightTheme() {
   return ThemeData(
     brightness: Brightness.light,
-    primaryColor: Color(0xFF102432),
-    scaffoldBackgroundColor: Color(0xFFFFFFFF),
-    appBarTheme: AppBarTheme(
+    primaryColor: const Color(0xFF102432),
+    scaffoldBackgroundColor: const Color(0xFFFFFFFF),
+    appBarTheme: const AppBarTheme(
       backgroundColor: Color(0xFF102432),
       iconTheme: IconThemeData(color: Color(0xFF000000)),
     ),
-    textTheme: TextTheme(
+    textTheme: const TextTheme(
       titleLarge: TextStyle(color: Color(0xFF000000), fontSize: 18, fontWeight: FontWeight.bold),
       bodyLarge: TextStyle(color: Color(0xFF000000), fontSize: 16),
     ),
-    cardColor: Color(0xFFFFFFFF),
-    dividerColor: Color(0xFFD3D3D3),
-    iconTheme: IconThemeData(color: Color(0xFF000000)),
-    bottomNavigationBarTheme: BottomNavigationBarThemeData(
+    cardColor: const Color(0xFFFFFFFF),
+    dividerColor: const Color(0xFFD3D3D3),
+    iconTheme: const IconThemeData(color: Color(0xFF000000)),
+    bottomNavigationBarTheme: const BottomNavigationBarThemeData(
       backgroundColor: Color(0xFF102432),
       selectedItemColor: Color(0xFFD3D3D3),
       unselectedItemColor: Color(0xFFD3D3D3),
     ),
-    buttonTheme: ButtonThemeData(
+    buttonTheme: const ButtonThemeData(
       buttonColor: Color(0xFF2FB8DE),
       textTheme: ButtonTextTheme.primary,
     ),
     textButtonTheme: TextButtonThemeData(
       style: TextButton.styleFrom(
-        foregroundColor: Color(0xFF000000),
+        foregroundColor: const Color(0xFF000000),
       ),
     ),
-    inputDecorationTheme: InputDecorationTheme(
+    inputDecorationTheme: const InputDecorationTheme(
       hintStyle: TextStyle(color: Color(0xFFD3D3D3)),
       border: OutlineInputBorder(
         borderSide: BorderSide(color: Color(0xFF000000)),
@@ -120,18 +120,18 @@ class ThemeProvider with ChangeNotifier {
       brightness: Brightness.light,
       primaryColor: Colors.green,
       scaffoldBackgroundColor: Colors.white,
-      appBarTheme: AppBarTheme(
+      appBarTheme: const AppBarTheme(
         backgroundColor: Colors.green,
         iconTheme: IconThemeData(color: Colors.black),
       ),
-      textTheme: TextTheme(
+      textTheme: const TextTheme(
         titleLarge: TextStyle(color: Colors.black, fontSize: 18, fontWeight: FontWeight.bold),
         bodyLarge: TextStyle(color: Colors.black, fontSize: 16),
       ),
       cardColor: Colors.green[100],
       dividerColor: Colors.green[300],
-      iconTheme: IconThemeData(color: Colors.black),
-      bottomNavigationBarTheme: BottomNavigationBarThemeData(
+      iconTheme: const IconThemeData(color: Colors.black),
+      bottomNavigationBarTheme: const BottomNavigationBarThemeData(
         backgroundColor: Colors.green,
         selectedItemColor: Colors.black,
         unselectedItemColor: Colors.black54,
@@ -144,18 +144,18 @@ class ThemeProvider with ChangeNotifier {
       brightness: Brightness.light,
       primaryColor: Colors.blue,
       scaffoldBackgroundColor: Colors.white,
-      appBarTheme: AppBarTheme(
+      appBarTheme: const AppBarTheme(
         backgroundColor: Colors.blue,
         iconTheme: IconThemeData(color: Colors.black),
       ),
-      textTheme: TextTheme(
+      textTheme: const TextTheme(
         titleLarge: TextStyle(color: Colors.black, fontSize: 18, fontWeight: FontWeight.bold),
         bodyLarge: TextStyle(color: Colors.black, fontSize: 16),
       ),
       cardColor: Colors.blue[100],
       dividerColor: Colors.blue[300],
-      iconTheme: IconThemeData(color: Colors.black),
-      bottomNavigationBarTheme: BottomNavigationBarThemeData(
+      iconTheme: const IconThemeData(color: Colors.black),
+      bottomNavigationBarTheme: const BottomNavigationBarThemeData(
         backgroundColor: Colors.blue,
         selectedItemColor: Colors.black,
         unselectedItemColor: Colors.black54,
@@ -168,18 +168,18 @@ class ThemeProvider with ChangeNotifier {
       brightness: Brightness.light,
       primaryColor: Colors.purple,
       scaffoldBackgroundColor: Colors.white,
-      appBarTheme: AppBarTheme(
+      appBarTheme: const AppBarTheme(
         backgroundColor: Colors.purple,
         iconTheme: IconThemeData(color: Colors.black),
       ),
-      textTheme: TextTheme(
+      textTheme: const TextTheme(
         titleLarge: TextStyle(color: Colors.black, fontSize: 18, fontWeight: FontWeight.bold),
         bodyLarge: TextStyle(color: Colors.black, fontSize: 16),
       ),
       cardColor: Colors.purple[100],
       dividerColor: Colors.purple[300],
-      iconTheme: IconThemeData(color: Colors.black),
-      bottomNavigationBarTheme: BottomNavigationBarThemeData(
+      iconTheme: const IconThemeData(color: Colors.black),
+      bottomNavigationBarTheme: const BottomNavigationBarThemeData(
         backgroundColor: Colors.purple,
         selectedItemColor: Colors.black,
         unselectedItemColor: Colors.black54,
@@ -192,18 +192,18 @@ class ThemeProvider with ChangeNotifier {
       brightness: Brightness.light,
       primaryColor: Colors.black,
       scaffoldBackgroundColor: Colors.white,
-      appBarTheme: AppBarTheme(
+      appBarTheme: const AppBarTheme(
         backgroundColor: Colors.black,
         iconTheme: IconThemeData(color: Colors.white),
       ),
-      textTheme: TextTheme(
+      textTheme: const TextTheme(
         titleLarge: TextStyle(color: Colors.black, fontSize: 18, fontWeight: FontWeight.bold),
         bodyLarge: TextStyle(color: Colors.black, fontSize: 16),
       ),
       cardColor: Colors.grey[300],
       dividerColor: Colors.grey[500],
-      iconTheme: IconThemeData(color: Colors.black),
-      bottomNavigationBarTheme: BottomNavigationBarThemeData(
+      iconTheme: const IconThemeData(color: Colors.black),
+      bottomNavigationBarTheme: const BottomNavigationBarThemeData(
         backgroundColor: Colors.black,
         selectedItemColor: Colors.white,
         unselectedItemColor: Colors.white60,

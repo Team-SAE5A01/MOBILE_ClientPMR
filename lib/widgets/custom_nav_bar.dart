@@ -53,11 +53,11 @@ class _CustomNavBarState extends State<CustomNavBar> with SingleTickerProviderSt
         decoration: BoxDecoration(
           borderRadius: const BorderRadius.vertical(top: Radius.circular(25)),
           color: theme.bottomNavigationBarTheme.backgroundColor,
-          boxShadow: [
+          boxShadow: const [
             BoxShadow(
               color: Colors.black26,
               blurRadius: 10,
-              offset: const Offset(0, -3),
+              offset: Offset(0, -3),
             ),
           ],
         ),

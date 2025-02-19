@@ -35,7 +35,7 @@ class HomeUserPage extends StatelessWidget {
                 CircleAvatar(
                   radius: 30,
                   backgroundColor: theme.cardColor,
-                  child: Icon(Icons.person, size: 40, color: theme.colorScheme.onBackground),
+                  child: Icon(Icons.person, size: 40, color: theme.colorScheme.onSurface),
                 ),
                 const SizedBox(width: 10),
                 Column(
@@ -43,11 +43,11 @@ class HomeUserPage extends StatelessWidget {
                   children: [
                     Text(
                       'Bienvenue',
-                      style: theme.textTheme.titleLarge?.copyWith(color: theme.colorScheme.onBackground),
+                      style: theme.textTheme.titleLarge?.copyWith(color: theme.colorScheme.onSurface),
                     ),
                     Text(
                       'Julien',
-                      style: theme.textTheme.bodyLarge?.copyWith(color: theme.colorScheme.onBackground),
+                      style: theme.textTheme.bodyLarge?.copyWith(color: theme.colorScheme.onSurface),
                     ),
                   ],
                 ),
@@ -63,7 +63,7 @@ class HomeUserPage extends StatelessWidget {
               children: [
                 Text(
                   'Vos réservations',
-                  style: theme.textTheme.titleLarge?.copyWith(color: theme.colorScheme.onBackground),
+                  style: theme.textTheme.titleLarge?.copyWith(color: theme.colorScheme.onSurface),
                 ),
                 Divider(color: theme.dividerColor),
               ],
@@ -93,7 +93,7 @@ class HomeUserPage extends StatelessWidget {
               children: [
                 Text(
                   'Vos voyages passés',
-                  style: theme.textTheme.titleLarge?.copyWith(color: theme.colorScheme.onBackground),
+                  style: theme.textTheme.titleLarge?.copyWith(color: theme.colorScheme.onSurface),
                 ),
                 Divider(color: theme.dividerColor),
               ],

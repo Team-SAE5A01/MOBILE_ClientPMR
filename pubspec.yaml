@@ -56,9 +56,9 @@ dev_dependencies:
 flutter_icons:
   android: true
   ios: true
-  image_path: "lib/assets/images/logo.png"
+  image_path: "lib/assets/images/AppIcons/android/mipmap-xhdpi/ic_launcher.png"
   adaptive_icon_background: "#ffffff"  # Couleur de fond pour Android
-  adaptive_icon_foreground: "lib/assets/images/logo.png"
+  adaptive_icon_foreground: "lib/assets/images/AppIcons/android/mipmap-xhdpi/ic_launcher.png"
 # The following section is specific to Flutter packages.
 flutter:
   

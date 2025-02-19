@@ -108,7 +108,7 @@ class _SignupPageState extends State<SignupPage> {
               const SizedBox(height: 6),
               TextFormField(
                 controller: _firstNameController,
-                style: theme.textTheme.bodyLarge?.copyWith(color: theme.colorScheme.onBackground),
+                style: theme.textTheme.bodyLarge?.copyWith(color: theme.colorScheme.onSurface),
                 decoration: InputDecoration(
                   hintText: 'Entrer le prénom',
                   hintStyle: theme.textTheme.bodyLarge?.copyWith(color: theme.hintColor),
@@ -136,7 +136,7 @@ class _SignupPageState extends State<SignupPage> {
               const SizedBox(height: 6),
               TextFormField(
                 controller: _lastNameController,
-                style: theme.textTheme.bodyLarge?.copyWith(color: theme.colorScheme.onBackground),
+                style: theme.textTheme.bodyLarge?.copyWith(color: theme.colorScheme.onSurface),
                 decoration: InputDecoration(
                   hintText: 'Entrer le nom',
                   hintStyle: theme.textTheme.bodyLarge?.copyWith(color: theme.hintColor),
@@ -229,7 +229,7 @@ class _SignupPageState extends State<SignupPage> {
                     ),
                   ),
                   dropdownColor: theme.cardColor,
-                  style: theme.textTheme.bodyLarge?.copyWith(color: theme.colorScheme.onBackground),
+                  style: theme.textTheme.bodyLarge?.copyWith(color: theme.colorScheme.onSurface),
                   value: selectedPMRType,
                   items: pmrTypes.map((String type) {
                     return DropdownMenuItem<String>(
@@ -260,7 +260,7 @@ class _SignupPageState extends State<SignupPage> {
               const SizedBox(height: 6),
               TextFormField(
                 controller: _emailController,
-                style: theme.textTheme.bodyLarge?.copyWith(color: theme.colorScheme.onBackground),
+                style: theme.textTheme.bodyLarge?.copyWith(color: theme.colorScheme.onSurface),
                 decoration: InputDecoration(
                   hintText: 'Entrer une adresse mail',
                   hintStyle: theme.textTheme.bodyLarge?.copyWith(color: theme.hintColor),
@@ -283,7 +283,7 @@ class _SignupPageState extends State<SignupPage> {
               const SizedBox(height: 6),
               TextFormField(
                 controller: _confirmEmailController,
-                style: theme.textTheme.bodyLarge?.copyWith(color: theme.colorScheme.onBackground),
+                style: theme.textTheme.bodyLarge?.copyWith(color: theme.colorScheme.onSurface),
                 decoration: InputDecoration(
                   hintText: 'Confirmer l\'adresse mail',
                   hintStyle: theme.textTheme.bodyLarge?.copyWith(color: theme.hintColor),
@@ -314,7 +314,7 @@ class _SignupPageState extends State<SignupPage> {
               const SizedBox(height: 6),
               TextFormField(
                 controller: _passwordController,
-                style: theme.textTheme.bodyLarge?.copyWith(color: theme.colorScheme.onBackground),
+                style: theme.textTheme.bodyLarge?.copyWith(color: theme.colorScheme.onSurface),
                 decoration: InputDecoration(
                   hintText: 'Entrer le mot de passe',
                   hintStyle: theme.textTheme.bodyLarge?.copyWith(color: theme.hintColor),
@@ -353,7 +353,7 @@ class _SignupPageState extends State<SignupPage> {
               const SizedBox(height: 6),
               TextFormField(
                 controller: _confirmPasswordController,
-                style: theme.textTheme.bodyLarge?.copyWith(color: theme.colorScheme.onBackground),
+                style: theme.textTheme.bodyLarge?.copyWith(color: theme.colorScheme.onSurface),
                 decoration: InputDecoration(
                   hintText: 'Confirmer le mot de passe',
                   hintStyle: theme.textTheme.bodyLarge?.copyWith(color: theme.hintColor),
