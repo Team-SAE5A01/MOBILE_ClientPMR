@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobilite_pmr/features/utilisateur/user_profile_settings_page.dart';
 
 class UserProfilePage extends StatelessWidget {
   const UserProfilePage({super.key});
@@ -101,19 +102,24 @@ class UserProfilePage extends StatelessWidget {
                   const ProfileDetail(icon: Icons.event, label: 'Prochain trajet prévu : 10 Février 2025'),
                   const SizedBox(height: 20),
                   ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color.fromRGBO(68, 138, 255, 1),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 80),
-                    ),
-                    onPressed: () {},
-                    child: const Text(
-                      'Modifier le profil',
-                      style: TextStyle(fontSize: 16, color: Colors.white),
-                    ),
-                  ),
+  style: ElevatedButton.styleFrom(
+    backgroundColor: const Color.fromRGBO(68, 138, 255, 1),
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(10),
+    ),
+    padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 80),
+  ),
+  onPressed: () {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const UserProfileSettingsPage()),
+    );
+  },
+  child: const Text(
+    'Modifier le profil',
+    style: TextStyle(fontSize: 16, color: Colors.white),
+  ),
+)
                 ],
               ),
             ),

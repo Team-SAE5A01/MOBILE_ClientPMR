@@ -56,9 +56,10 @@ dev_dependencies:
 flutter_icons:
   android: true
   ios: true
-  image_path: "lib/assets/images/AppIcons/android/mipmap-xhdpi/ic_launcher.png"
+  image_path: "assets/images/AppIcons/Icone.png"
   adaptive_icon_background: "#ffffff"  # Couleur de fond pour Android
-  adaptive_icon_foreground: "lib/assets/images/AppIcons/android/mipmap-xhdpi/ic_launcher.png"
+  adaptive_icon_foreground: "assets/images/AppIcons/Icone.png"
+
 # The following section is specific to Flutter packages.
 flutter:
   
@@ -68,7 +69,8 @@ flutter:
   # the material Icons class.
   uses-material-design: true
   assets:
-  - lib/assets/images/Logo_PMR.png
+  - assets/images/Logo_PMR.png
+  - assets/images/user_avatar.png
 
   # To add assets to your application, add an assets section, like this:
   # assets:

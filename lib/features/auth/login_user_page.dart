@@ -22,7 +22,7 @@ class LoginPMR extends StatelessWidget {
               width: MediaQuery.of(context).size.width * 0.5,
               height: MediaQuery.of(context).size.width * 0.5,
               child: Image.asset(
-                'lib/assets/images/Logo_PMR.png',
+                'assets/images/Logo_PMR.png',
                 fit: BoxFit.cover,
               ),
             ),
