@@ -28,7 +28,7 @@ class UserProfilePage extends StatelessWidget {
                     backgroundColor: Colors.white,
                     child: ClipOval(
                       child: Image.asset(
-                        'lib/assets/images/user_avatar.png',
+                        'assets/images/user_avatar.png',
                         fit: BoxFit.cover,
                         width: 90,
                         height: 90,

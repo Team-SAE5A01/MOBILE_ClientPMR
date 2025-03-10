@@ -1,10 +1,36 @@
 import 'package:flutter/material.dart';
-import 'package:mobilite_pmr/features/auth/forgot_password_page.dart';
-import '../../core/app_layout.dart'; // Remplace HomeUserPage par AppLayout
+import '../../core/api_service.dart';
+import 'forgot_password_page.dart';
 import 'signup_page.dart';
 
-class LoginPMR extends StatelessWidget {
-  const LoginPMR({super.key, required void Function() onLogin});
+class LoginPMR extends StatefulWidget {
+  final Function(String email) onLogin;
+
+  const LoginPMR({super.key, required this.onLogin});
+
+  @override
+  _LoginPMRState createState() => _LoginPMRState();
+}
+
+class _LoginPMRState extends State<LoginPMR> {
+  final TextEditingController _usernameController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  final ApiService _apiService = ApiService();
+
+  Future<void> _loginUser() async {
+    try {
+      final user = await _apiService.loginUser(
+        _usernameController.text,
+        _passwordController.text,
+      );
+      widget.onLogin(user['email']);
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Nom d\'utilisateur ou mot de passe incorrect')),
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +42,6 @@ class LoginPMR extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            // Logo
             SizedBox(height: MediaQuery.of(context).size.width * 0.1),
             SizedBox(
               width: MediaQuery.of(context).size.width * 0.5,
@@ -26,7 +51,6 @@ class LoginPMR extends StatelessWidget {
                 fit: BoxFit.cover,
               ),
             ),
-            // Welcome Text
             const Text(
               'Bienvenue',
               style: TextStyle(
@@ -37,18 +61,18 @@ class LoginPMR extends StatelessWidget {
                 decorationColor: Colors.white,
               ),
             ),
-            // Form
             Form(
+              key: _formKey,
               child: Column(
                 children: [
                   SizedBox(height: MediaQuery.of(context).size.width * 0.05),
-                  // Username Input
                   Padding(
                     padding: EdgeInsets.symmetric(
                       horizontal: MediaQuery.of(context).size.width * 0.05,
                     ),
                     child: TextFormField(
-                      keyboardType: TextInputType.name,
+                      controller: _usernameController,
+                      keyboardType: TextInputType.emailAddress,
                       style: const TextStyle(color: Colors.white),
                       decoration: const InputDecoration(
                         hintText: "Nom d'utilisateur",
@@ -61,15 +85,21 @@ class LoginPMR extends StatelessWidget {
                         ),
                         prefixIcon: Icon(Icons.person, color: Colors.white),
                       ),
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Veuillez entrer votre nom d\'utilisateur';
+                        }
+                        return null;
+                      },
                     ),
                   ),
                   SizedBox(height: MediaQuery.of(context).size.width * 0.1),
-                  // Password Input
                   Padding(
                     padding: EdgeInsets.symmetric(
                       horizontal: MediaQuery.of(context).size.width * 0.05,
                     ),
                     child: TextFormField(
+                      controller: _passwordController,
                       obscureText: true,
                       style: const TextStyle(color: Colors.white),
                       decoration: const InputDecoration(
@@ -83,10 +113,15 @@ class LoginPMR extends StatelessWidget {
                         ),
                         prefixIcon: Icon(Icons.lock, color: Colors.white),
                       ),
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Veuillez entrer votre mot de passe';
+                        }
+                        return null;
+                      },
                     ),
-                  ),            
+                  ),
                   SizedBox(height: MediaQuery.of(context).size.width * 0.05),
-                  // Login Button
                   Padding(
                     padding: EdgeInsets.symmetric(
                       horizontal: MediaQuery.of(context).size.width * 0.05,
@@ -100,13 +135,9 @@ class LoginPMR extends StatelessWidget {
                       child: MaterialButton(
                         minWidth: double.infinity,
                         onPressed: () {
-                          // Redirection vers AppLayout qui gère la navbar
-                          Navigator.pushReplacement(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const AppLayout(),
-                            ),
-                          );
+                          if (_formKey.currentState!.validate()) {
+                            _loginUser();
+                          }
                         },
                         textColor: Colors.black,
                         child: const Text('Se connecter'),
@@ -114,7 +145,6 @@ class LoginPMR extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: MediaQuery.of(context).size.width * 0.05),
-                  // Forgot Password & Register
                   Padding(
                     padding: EdgeInsets.symmetric(
                       horizontal: MediaQuery.of(context).size.width * 0.05,
@@ -122,25 +152,23 @@ class LoginPMR extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        // Forgot Password
                         TextButton(
-  onPressed: () {
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => const ForgotPasswordPage(),
-      ),
-    );
-  },
-  child: const Text(
-    'Mot de passe oublié ?',
-    style: TextStyle(
-      color: Colors.white,
-      fontSize: 15,
-    ),
-  ),
-),
-                        // Register
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const ForgotPasswordPage(),
+                              ),
+                            );
+                          },
+                          child: const Text(
+                            'Mot de passe oublié ?',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 15,
+                            ),
+                          ),
+                        ),
                         TextButton(
                           onPressed: () {
                             Navigator.push(

@@ -5,20 +5,29 @@ import '../features/utilisateur/reservation_page.dart';
 import '../widgets/custom_nav_bar.dart'; // Import de la navbar
 
 class AppLayout extends StatefulWidget {
-  const AppLayout({super.key});
+  final String userEmail;
+
+  const AppLayout({super.key, required this.userEmail});
 
   @override
   _AppLayoutState createState() => _AppLayoutState();
 }
 
 class _AppLayoutState extends State<AppLayout> {
-  int _selectedIndex = 1; // Assurez-vous que Home est bien l'index 1
+  int _selectedIndex = 1;
 
-  final List<Widget> _pages = [
-    const ReservationPage(), // Index 0
-    const HomeUserPage(), // Index 1 (Accueil)
-    const UserProfilePage(), // Index 2
-  ];
+  late final List<Widget> _pages;
+
+  @override
+  void initState() {
+    super.initState();
+    print("User email in AppLayout: ${widget.userEmail}"); // Log pour vérifier l'email passé à AppLayout
+    _pages = [
+      const ReservationPage(),
+      HomeUserPage(userEmail: widget.userEmail),
+      const UserProfilePage(),
+    ];
+  }
 
   void _onItemTapped(int index) {
     setState(() {
@@ -29,12 +38,15 @@ class _AppLayoutState extends State<AppLayout> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _pages[_selectedIndex], // Affichage de la page sélectionnée
+      body: IndexedStack(
+        index: _selectedIndex,
+        children: _pages,
+      ),
       bottomNavigationBar: CustomNavBar(
         selectedIndex: _selectedIndex,
         onItemTapped: _onItemTapped,
+        userEmail: widget.userEmail,
       ),
     );
   }
 }
-

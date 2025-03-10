@@ -6,7 +6,11 @@ import '../features/utilisateur/reservation_page.dart';
 import '../core/theme_provider.dart';
 
 class CustomNavBar extends StatefulWidget {
-  const CustomNavBar({super.key, required int selectedIndex, required void Function(int index) onItemTapped});
+  final int selectedIndex;
+  final void Function(int index) onItemTapped;
+  final String userEmail; // Ajout d'un paramètre pour l'email de l'utilisateur connecté
+
+  const CustomNavBar({super.key, required this.selectedIndex, required this.onItemTapped, required this.userEmail});
 
   @override
   _CustomNavBarState createState() => _CustomNavBarState();
@@ -19,7 +23,7 @@ class _CustomNavBarState extends State<CustomNavBar> with SingleTickerProviderSt
 
   final List<Widget> _pages = [
     const ReservationPage(),
-    const HomeUserPage(),
+    const HomeUserPage(userEmail: ''), // Passez l'email de l'utilisateur connecté
     const UserProfilePage(),
   ];
 
@@ -38,6 +42,7 @@ class _CustomNavBarState extends State<CustomNavBar> with SingleTickerProviderSt
       _selectedIndex = index;
       _controller.forward(from: 0.0);
     });
+    widget.onItemTapped(index);
   }
 
   @override

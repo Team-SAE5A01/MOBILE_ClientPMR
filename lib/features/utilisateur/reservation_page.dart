@@ -15,7 +15,7 @@ class ReservationPage extends StatelessWidget {
             child: Row(
               children: [
                 Image.asset(
-                  'lib/assets/images/Logo_PMR.png',
+                  'assets/images/Logo_PMR.png',
                   width: 40,
                   height: 40,
                 ),
